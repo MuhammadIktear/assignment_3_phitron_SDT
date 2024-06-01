@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container pt-5">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if text == 'no' %}
+            <button class="btn btn-warning btn-sm" type="submit">Add</button>
+        {% else %}
+            <button class="btn btn-sm mt-2 btn-warning" type="submit">Save Changes</button>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
